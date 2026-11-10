@@ -1,14 +1,14 @@
 # AT&T Spam Detector : Détection automatique de SMS spam
 
+> Classification de SMS spam avec un LSTM bidirectionnel et un DistilBERT fine-tuné, projet de formation JEDHA.
+
 [![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=flat&logo=python&logoColor=fff)](#)
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=fff)](#)
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=flat&logo=huggingface&logoColor=000)](#)
 [![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=jupyter&logoColor=fff)](#)
 [![JEDHA](https://img.shields.io/badge/JEDHA-blueviolet?style=flat)](#)
 
----
-
-## About
+## Contexte et rôle
 
 AT&T, leader américain des télécoms, souhaite automatiser la détection de SMS spam pour protéger ses utilisateurs. Ce projet construit deux modèles de deep learning capables de classifier un SMS en **spam** ou **ham** (légitime) à partir de son contenu textuel :
 
@@ -16,10 +16,6 @@ AT&T, leader américain des télécoms, souhaite automatiser la détection de SM
 - un **DistilBERT** fine-tuné par transfer learning.
 
 Projet réalisé dans le cadre du **BLOC 4 : Deep Learning** du bootcamp JEDHA.
-
----
-
-## Contexte et rôle
 
 Projet de formation du bootcamp JEDHA (Data Fullstack, BLOC 4, Deep Learning). L'énoncé, le contexte métier et les données viennent de JEDHA ; AT&T est un cas d'étude pédagogique, sans lien avec l'entreprise ni mission réelle.
 
@@ -40,30 +36,7 @@ Le dataset est déséquilibré : seulement 13% de spam. Le F1-score sur la class
 
 ---
 
-## Installation
-
-```bash
-git clone https://github.com/athanormark/AT-T-BLOC-4_JEDHA_FORMATION.git
-cd AT-T-BLOC-4_JEDHA_FORMATION
-pip install -r requirements.txt
-```
-
-Télécharger le dataset dans `data/` :
-
-```bash
-mkdir data
-curl -o data/spam.csv "https://full-stack-bigdata-datasets.s3.eu-west-3.amazonaws.com/Deep+Learning/project/spam.csv"
-```
-
-Lancer le notebook :
-
-```bash
-jupyter notebook notebook/att_spam_detector.ipynb
-```
-
----
-
-## Pipeline
+## Fonctionnalités
 
 ### 1. EDA et nettoyage
 
@@ -103,6 +76,14 @@ jupyter notebook notebook/att_spam_detector.ipynb
 
 ---
 
+## Stack
+
+- Langage : Python 3.10, Jupyter
+- Données et visualisation : pandas, NumPy, Matplotlib, seaborn
+- Modélisation : scikit-learn, PyTorch (LSTM bidirectionnel), Hugging Face Transformers (DistilBERT)
+
+---
+
 ## Résultats
 
 | Modèle | Accuracy | F1 (spam) | Precision (spam) | Recall (spam) |
@@ -113,6 +94,29 @@ jupyter notebook notebook/att_spam_detector.ipynb
 DistilBERT surpasse le LSTM sur toutes les métriques. Le transfer learning est particulièrement efficace ici car le dataset est petit (5 572 exemples).
 
 ![Comparaison des modèles](assets/images/model_comparison.png)
+
+---
+
+## Lancer le projet
+
+```bash
+git clone https://github.com/athanormark/AT-T-BLOC-4_JEDHA_FORMATION.git
+cd AT-T-BLOC-4_JEDHA_FORMATION
+pip install -r requirements.txt
+```
+
+Télécharger le dataset dans `data/` :
+
+```bash
+mkdir data
+curl -o data/spam.csv "https://full-stack-bigdata-datasets.s3.eu-west-3.amazonaws.com/Deep+Learning/project/spam.csv"
+```
+
+Lancer le notebook :
+
+```bash
+jupyter notebook notebook/att_spam_detector.ipynb
+```
 
 ---
 
@@ -164,4 +168,4 @@ Bonnes pratiques appliquées : split stratifié avant toute transformation (pas 
 
 ## Auteur
 
-Athanor SAVOUILLAN · [GitHub](https://github.com/athanormark)
+Athanor Savouillan · [Réalisations](https://atelia-conseil.com/realisations/) · [GitHub](https://github.com/athanormark)
