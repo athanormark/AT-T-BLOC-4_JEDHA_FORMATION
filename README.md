@@ -1,4 +1,4 @@
-# AT&T Spam Detector -- Détection automatique de SMS spam
+# AT&T Spam Detector : Détection automatique de SMS spam
 
 [![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=flat&logo=python&logoColor=fff)](#)
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=fff)](#)
@@ -15,7 +15,15 @@ AT&T, leader américain des télécoms, souhaite automatiser la détection de SM
 - un **LSTM bidirectionnel** entraîné from scratch ;
 - un **DistilBERT** fine-tuné par transfer learning.
 
-Projet réalisé dans le cadre du **BLOC 4 -- Deep Learning** du bootcamp JEDHA.
+Projet réalisé dans le cadre du **BLOC 4 : Deep Learning** du bootcamp JEDHA.
+
+---
+
+## Contexte et rôle
+
+Projet de formation du bootcamp JEDHA (Data Fullstack, BLOC 4, Deep Learning). L'énoncé, le contexte métier et les données viennent de JEDHA ; AT&T est un cas d'étude pédagogique, sans lien avec l'entreprise ni mission réelle.
+
+Ce dépôt rassemble mon travail sur ce cas : classification de SMS par un LSTM bidirectionnel et un DistilBERT fine-tuné. Les résultats annoncés plus bas sont ceux du notebook du dépôt.
 
 ---
 
@@ -74,14 +82,14 @@ jupyter notebook notebook/att_spam_detector.ipynb
 
 ### 3. Modélisation
 
-**Modèle 1 -- LSTM bidirectionnel (from scratch)**
+**Modèle 1 : LSTM bidirectionnel (from scratch)**
 
 - Embedding 128 dims, LSTM 2 couches bidirectionnelles, global average pooling, dense.
 - BCEWithLogitsLoss avec pos_weight = 3.0 pour compenser le déséquilibre.
 - Adam (lr = 2e-3) + StepLR scheduler + gradient clipping.
 - 20 epochs, ~640 000 paramètres.
 
-**Modèle 2 -- DistilBERT (transfer learning)**
+**Modèle 2 : DistilBERT (transfer learning)**
 
 - Modèle pré-entraîné sur un large corpus anglais (66M paramètres).
 - Freeze des embeddings + 4 premières couches transformer (22% des paramètres entraînés).
